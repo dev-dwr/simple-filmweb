@@ -1,4 +1,4 @@
-package com.pwr266521.jetpack.movie.ui
+package com.pwr266521.jetpack.movie.composable
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
