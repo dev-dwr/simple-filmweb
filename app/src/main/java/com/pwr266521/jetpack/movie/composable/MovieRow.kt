@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.pwr266521.jetpack.movie.domain.Movie
@@ -31,7 +32,7 @@ fun MovieRow(movie: Movie, onRowClick: () -> Unit) {
     ) {
         Image(
             painter = painterResource(id = movie.icon),
-            contentDescription = "Movie Icon",
+            contentDescription = "photo",
             modifier = Modifier.size(100.dp)
         )
         Spacer(Modifier.width(16.dp))

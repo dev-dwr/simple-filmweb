@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.pwr266521.jetpack.data.MOVIES_DATA.MOVIES
 import com.pwr266521.jetpack.movie.composable.MovieList
 import com.pwr266521.jetpack.movie.bars.MyTopBar
@@ -18,18 +19,13 @@ import com.pwr266521.jetpack.ui.theme.JetpackTheme
 
 
 class MainActivity : ComponentActivity() {
-    companion object {
-        const val MOVIE_ID = "MOVIE_ID"
-        const val APP_NAME = "Studencki Filmweb"
-    }
-
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackTheme {
                 Scaffold(
-                    topBar = { MyTopBar(APP_NAME) }
+                    topBar = { MyTopBar(stringResource(R.string.app_name)) }
                 ) { innerPadding ->
                     Surface(
                         modifier = Modifier
@@ -39,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         MovieList(movies = MOVIES) { movie ->
                             val intent = Intent(this, MovieDetailsActivity::class.java)
-                            intent.putExtra(MOVIE_ID, movie.title)
+                            intent.putExtra("MOVIE_ID", movie.title)
                             startActivity(intent)
                         }
                     }
