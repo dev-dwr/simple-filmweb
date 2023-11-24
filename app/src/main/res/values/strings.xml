@@ -2,5 +2,6 @@
     <string name="app_name">Studencki Filmweb</string>
     <string name="movie_id">MOVIE_ID</string>
     <string name="photo_icon">photo icon</string>
+    <string name="title_activity_movie_details">Simple Filmweb</string>
 
 </resources>

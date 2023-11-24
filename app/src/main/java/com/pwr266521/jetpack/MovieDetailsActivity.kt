@@ -25,8 +25,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.pwr266521.jetpack.MainActivity.Companion.MOVIE_ID
 import com.pwr266521.jetpack.data.MOVIES_DATA.MOVIES
 import com.pwr266521.jetpack.movie.composable.BackButton
 import com.pwr266521.jetpack.movie.composable.MovieDetails
@@ -37,16 +37,18 @@ import com.pwr266521.jetpack.movie.composable.SceneGrid
 import com.pwr266521.jetpack.ui.theme.JetpackTheme
 
 class MovieDetailsActivity : ComponentActivity() {
+    val ID = "MOVIE_ID"
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val movieTitle = intent.extras?.getString(MOVIE_ID)
+        val movieTitle = intent.extras?.getString(ID)
         val movie = MOVIES.first { it.title == movieTitle }
         setContent {
             var showCast by remember { mutableStateOf(true) }
             JetpackTheme {
                 Scaffold(
-                    topBar = { MyTopBar(MainActivity.APP_NAME) }
+                    topBar = { MyTopBar(stringResource(R.string.app_name)) }
                 ) { innerPadding ->
                     Surface(
                         modifier = Modifier
