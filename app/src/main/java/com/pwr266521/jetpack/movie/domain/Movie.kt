@@ -6,5 +6,6 @@ data class Movie(
     val duration: String,
     val description: String,
     val actors: List<Actor>,
-    val scenes: List<Int>
+    val scenes: List<Int>,
+    val trailers: List<Int>
 )

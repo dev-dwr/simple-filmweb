@@ -12,7 +12,8 @@ object MOVIES_DATA {
             "1:30h",
             "This movie follows the story of Peter Parker, a high school student who gains spider-like abilities after being bitten by a genetically-modified spider. He adopts the superhero identity of Spider-Man to fight crime",
             ACTORS_SPIDERMAN,
-            SCENES_SPIDERMAN
+            SCENES_SPIDERMAN,
+            listOf(R.raw.spidermanmovie, R.raw.trailerspiderman2),
         ),
         Movie(
             R.drawable.batman,
@@ -20,7 +21,8 @@ object MOVIES_DATA {
             "2h",
             "Set in the dark and gritty Gotham City, this film focuses on Bruce Wayne, a billionaire who, traumatized by the murder of his parents as a child",
             ACTORS_BATMAN,
-            SCENES_BATMAN
+            SCENES_BATMAN,
+            listOf(R.raw.batmantrailer),
         ),
         Movie(
             R.drawable.flash,
@@ -28,7 +30,8 @@ object MOVIES_DATA {
             "1h",
             "This movie centers around Barry Allen, a forensic scientist who gains super-speed abilities after an accident involving lightning and chemicals.",
             ACTORS_FLASH,
-            SCENES_FLASH
+            SCENES_FLASH,
+            listOf(R.raw.flashtrailer, R.raw.flashtrailer2),
         ),
         Movie(
             R.drawable.superman,
@@ -36,7 +39,8 @@ object MOVIES_DATA {
             "3h",
             "The story of Superman revolves around Kal-El, the last survivor of the planet Krypton, sent to Earth as a baby. Raised as Clark Kent in a rural town.",
             ACTORS_SUPERMAN,
-            SCENES_SUPERMAN
+            SCENES_SUPERMAN,
+            listOf(R.raw.supermanmovie),
         )
     )
 }

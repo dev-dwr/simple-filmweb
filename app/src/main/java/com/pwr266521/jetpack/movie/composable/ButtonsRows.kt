@@ -14,8 +14,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ButtonsRow(
     showCast: Boolean,
+    showGrid: Boolean,
+    showTrailer: Boolean,
     onClickCast: () -> Unit,
-    onClickGallery: () -> Unit
+    onClickGallery: () -> Unit,
+    onClickTrailer: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -40,7 +43,16 @@ fun ButtonsRow(
             ) {
                 Text("Gallery")
             }
-        } else {
+            Button(
+                onClick = { onClickTrailer() },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp)
+            ) {
+                Text("Trailer")
+            }
+        }
+        if (showGrid) {
             Button(
                 onClick = { onClickCast() },
                 modifier = Modifier
@@ -57,6 +69,42 @@ fun ButtonsRow(
                 colors = ButtonDefaults.buttonColors(Color.Green)
             ) {
                 Text("Gallery")
+            }
+            Button(
+                onClick = { onClickTrailer() },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp)
+            ) {
+                Text("Trailer")
+            }
+        }
+
+        if (showTrailer) {
+            Button(
+                onClick = { onClickCast() },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp)
+            ) {
+                Text("Cast")
+            }
+            Button(
+                onClick = { onClickGallery() },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp)
+            ) {
+                Text("Gallery")
+            }
+            Button(
+                onClick = { onClickTrailer() },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp),
+                colors = ButtonDefaults.buttonColors(Color.Green)
+            ) {
+                Text("Trailer")
             }
         }
     }

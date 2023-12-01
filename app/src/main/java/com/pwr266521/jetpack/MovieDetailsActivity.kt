@@ -34,6 +34,8 @@ import com.pwr266521.jetpack.movie.bars.MyTopBar
 import com.pwr266521.jetpack.movie.composable.ActorsList
 import com.pwr266521.jetpack.movie.composable.ButtonsRow
 import com.pwr266521.jetpack.movie.composable.SceneGrid
+import com.pwr266521.jetpack.movie.composable.VideoList
+import com.pwr266521.jetpack.movie.composable.VideoPlayer
 import com.pwr266521.jetpack.ui.theme.JetpackTheme
 
 class MovieDetailsActivity : ComponentActivity() {
@@ -46,6 +48,8 @@ class MovieDetailsActivity : ComponentActivity() {
         val movie = MOVIES.first { it.title == movieTitle }
         setContent {
             var showCast by remember { mutableStateOf(true) }
+            var showTrailer by remember { mutableStateOf(false) }
+            var showGrid by remember { mutableStateOf(false) }
             JetpackTheme {
                 Scaffold(
                     topBar = { MyTopBar(stringResource(R.string.app_name)) }
@@ -63,10 +67,21 @@ class MovieDetailsActivity : ComponentActivity() {
                                 MovieDetails(movie)
                                 ButtonsRow(
                                     showCast,
-                                    onClickCast = { showCast = true },
-                                    onClickGallery = { showCast = false }
+                                    showGrid,
+                                    showTrailer,
+                                    onClickCast = {
+                                        showCast = true; showTrailer = false; showGrid = false
+                                    },
+                                    onClickGallery = {
+                                        showGrid = true;showCast = false; showTrailer = false
+                                    },
+                                    onClickTrailer = {
+                                        showTrailer = true; showCast = false; showGrid = false;
+                                    }
                                 )
-                                if (showCast) ActorsList(actors = movie.actors) else SceneGrid(movie.scenes)
+                                if (showCast) ActorsList(actors = movie.actors)
+                                if (showGrid) SceneGrid(movie.scenes)
+                                if (showTrailer) VideoList(movie)
                             }
                             BackButton { finish() }
                         }
